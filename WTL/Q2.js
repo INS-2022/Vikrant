@@ -1,30 +1,17 @@
-var events = require("events");
-var eventEmmiter = new events.EventEmitter();
+const EventEmitter = require("events")
 
-var mySort = () => {
-  var stringArr = ["Omkar", "Sree", "Mayur", "Gourav"];
-  stringArr.sort();
-  console.log(stringArr);
-};
+const eventEmitter = new EventEmitter();
+eventEmitter.on('sort',(array)=>{
+    array.sort();
+    console.log(array)
+})
+const friends =['Clark','Lois','Pete','Lana','Chloe'];
+eventEmitter.emit('sort',friends);
 
-eventEmmiter.on("sort", mySort);
-eventEmmiter.emit("sort");
+eventEmitter.on('search',(term,array)=>{
+    for(let i in array) if (array[i]===term ) return console.log(`Found term '${term}' at ${i}`) ;
+    console.log(`Term '${term}' not found`);
+})
 
-var mySearch = () => {
-  const stringArr = ["Omkar", "Sree", "Mayur", "Gourav"];
-  if (stringArr.includes("Bruh")) {
-    console.log("Found at index: " + stringArr.indexOf("Bruh"));
-  } else {
-    console.log("Not found");
-  }
-};
-
-eventEmmiter.on("search", mySearch);
-eventEmmiter.emit("search");
-
-const test = (a) => {
-  console.log(a);
-};
-
-eventEmmiter.on("test", test, 2);
-eventEmmiter.emit("test");
+eventEmitter.emit('search','Clark',friends);
+eventEmitter.emit('search','Lex',friends);

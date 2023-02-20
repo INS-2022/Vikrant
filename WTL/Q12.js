@@ -22,7 +22,7 @@ con.connect((err) => {
   //   });
 
   for (i = 2; i <= 10; i++) {
-    var insertQuery = `INSERT INTO employee VALUES(${i},'Omkar', 'Kandivali', 1${i}00000);`;
+    var insertQuery = `INSERT INTO employee VALUES(${i},'Vikrant', 'Chembur', 1${i}00000);`;
 
     con.query(insertQuery, (err) => {
       if (err) throw err;
