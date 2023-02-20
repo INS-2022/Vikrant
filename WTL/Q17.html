@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>WTL Q17</title>
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl" ng-init="calls=0;">
+    Enter number of calls: <input type="number" ng-model="calls">
+    <input type="button" value="Calculate Bill" ng-click="updateBill()">
+    Your Bill: {{bill}}
+</body>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', ($scope) => {
+        $scope.bill = 0;
+        $scope.calls = 300;
+        $scope.rental = 200;
+        $scope.updateBill = () => {
+            if ($scope.calls <= 200) {
+                $scope.bill = $scope.rental;
+            }
+            if ($scope.calls > 200 && $scope.calls <= 500) {
+                $scope.bill1 = ($scope.calls - 200) * 1;
+                $scope.bill = $scope.bill1 + $scope.rental;
+            }
+            if ($scope.calls > 500) {
+                $scope.call1 = $scope.calls - 200;  //Free Calls (200)
+                $scope.call2 = $scope.call1 - 300; //300 charged Re.1
+                $scope.bill = ($scope.call2 * 2) + 300 + $scope.rental;
+            }
+        }
+    })
+</script>
+
+</html>

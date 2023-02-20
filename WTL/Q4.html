@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>WTL Q4</title>
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+    Enter 1st number: <input type="number" ng-model="num1">
+    Enter 2nd number: <input type="number" ng-model="num2">
+    <input type="button" value="Calculate" ng-click="sum(num1, num2)">
+    <p>{{total}}</p>
+</body>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', ($scope) => {
+        $scope.total = 0;
+        $scope.sum = (a, b) => {
+            $scope.total = a + b;
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>WTL 47</title>
+</head>
+
+<body ng-app="">
+    <form name="myForm" novalidate>
+        <h1>Student Details</h1>
+        First Name: <input type="text" name="fname" ng-model="fname" ng-minlength="3" ng-maxlength="15"
+            ng-required="true"><br>
+        <span style="color: red" ng-show="myForm.fname.$invalid ">Enter valid First Name</span><br><br>
+        Last Name: <input type="text" name="lname" ng-model="lname" ng-minlength="3" ng-maxlength="15"
+            ng-required="true"><br>
+        <span style="color: red" ng-show="myForm.lname.$invalid">Enter valid Last Name</span><br><br>
+        Gender:
+        <select name="gender" ng-model="gender" ng-required="true">
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select><br>
+        <span style="color: red" ng-show="myForm.gender.$invalid">Please select your gender</span><br><br>
+        Date of Birth: <input type="date" name="dob" ng-model="dob" ng-required="true"><br>
+        <span style="color: red" ng-show="myForm.dob.$invalid">Please enter your dob</span><br><br>
+        Address: <textarea name="address" ng-model="address" cols="30" rows="5" ng-minlength="15"
+            ng-required="true"></textarea><br>
+        <span style="color: red" ng-show="myForm.address.$invalid">Enter your address</span><br><br>
+        Contact Number: <input type="number" name="cno" ng-model="cno" ng-minlength="10" ng-maxlength="10"
+            ng-required="true" /><br>
+        <span style="color: red" ng-show="myForm.cno.$invalid">Enter valid contact number</span><br><br>
+        Class:
+        <select name="class" ng-model="class" ng-required="true">
+            <option value="">Select Class</option>
+            <option value="First Year">First Year</option>
+            <option value="Second Year">Second Year</option>
+            <option value="Third Year">Third Year</option>
+            <option value="Fourth Year">Fourth Year</option>
+        </select><br>
+        <span style="color: red" ng-show="myForm.class.$invalid">Select your class</span><br><br>
+        Department:
+        <select name="dept" ng-model="dept" ng-required="true">
+            <option value="">Select department</option>
+            <option value="MCA">MCA</option>
+            <option value="BE">BE</option>
+            <option value="B.Sc">B.Sc</option>
+            <option value="MBA">MBA</option>
+        </select><br>
+        <span style="color: red" ng-show="myForm.dept.$invalid">Select your department</span><br><br>
+        College Name:
+        <input type="text" name="clgName" ng-model="clgName" ng-required="true" ng-minlength="3"><br>
+        <span style="color: red" ng-show="myForm.clgName.$invalid">Enter college name</span><br><br>
+        <input type="submit" value="Submit" ng-disabled="myForm.$invalid">
+    </form>
+</body>
+
+</html>

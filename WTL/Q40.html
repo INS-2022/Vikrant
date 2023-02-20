@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>WTL 40</title>
+</head>
+
+<body ng-app="">
+    <form name="myForm" novalidate>
+        First Name: <input type="text" name="fname" ng-model="fname" required><br>
+        <span style="color: red" ng-show="myForm.fname.$invalid ">Invalid first name</span><br>
+        Last Name: <input type="text" name="lname" ng-model="lname" required><br>
+        <span style="color: red" ng-show="myForm.lname.$invalid ">Invalid last name</span><br>
+
+        <span style="color: red" ng-show="myForm.$pristine">Please fill the form to submit</span><br>
+        <input type="button" value="Submit" ng-disabled="myForm.$invalid">
+    </form>
+</body>
+
+</html>

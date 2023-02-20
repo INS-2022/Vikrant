@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>WTL 23</title>
+</head>
+
+<body ng-app="" ng-init="marks=0;">
+    <form>
+        Name: <input type="text" ng-model="name"><br>
+        Class: <input type="text" ng-model="class"><br>
+        Roll No: <input type="number" ng-model="rno"><br>
+        Enter your marks: (out of 20)<br>
+        MFCS: <input type="number" ng-model="mfcs"><br>
+        ADBMS: <input type="number" ng-model="adbms"><br>
+        AJAVA: <input type="number" ng-model="ajava"><br>
+        WTL: <input type="number" ng-model="wtl"><br>
+        DS: <input type="number" ng-model="ds"><br>
+        <div ng-show="mfcs && adbms && ajava && wtl && ds">
+            Total Marks: {{marks}} out of 100<br>
+            Average Marks: {{marks/5}}<br>
+            Percentage obtained: {{marks=((mfcs+adbms+ajava+wtl+ds)/100)*100}}%<br>
+            You've {{marks<40 ? "Failed." : "Passed!" }} </div>
+    </form>
+</body>
+
+</html>

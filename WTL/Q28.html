@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>WTL 28</title>
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+    <ul type="square">
+        <li ng-repeat="x in students | orderBy: 'rollNo'">{{x.rollNo+' '+x.name+' '+x.age+' '+x.branch }}</li>
+    </ul>
+</body>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', ($scope) => {
+        $scope.students = [
+            { "rollNo": 50, "name": "Omkar", "age": 22, "branch": "MCA" },
+            { "rollNo": 42, "name": "Sarthak", "age": 20, "branch": "BE" },
+            { "rollNo": 57, "name": "Madhav", "age": 22, "branch": "Game Designer" },
+            { "rollNo": 25, "name": "Shubham", "age": 21, "branch": "MCA" },
+            { "rollNo": 12, "name": "Rohan", "age": 21, "branch": "UI" },
+        ]
+    })
+</script>
+
+</html>

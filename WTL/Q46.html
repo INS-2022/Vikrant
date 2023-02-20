@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>WTL 46</title>
+</head>
+
+<body ng-app="myApp">
+    <form name="myForm">
+        Enter a positive number: <input type="number" name="num" ng-model="num" even-odd required>
+        <div ng-hide="num==NULL">
+            <span style="color: red" ng-show="myForm.num.$error.evenOdd">{{num}} is odd number</span>
+            <span style="color: red" ng-show="!myForm.num.$error.evenOdd">{{num}} is even number</span>
+        </div>
+    </form>
+</body>
+<script>
+    var app = angular.module('myApp', []);
+    app.directive('evenOdd', () => {
+        return {
+            require: 'ngModel',
+            link: (scope, element, attr, mCtrl) => {
+                const evenOddValid = (num) => {
+                    if (num % 2 == 0) {
+                        mCtrl.$setValidity('evenOdd', true);
+                    } else {
+                        mCtrl.$setValidity('evenOdd', false);
+                    }
+                    return num;
+                }
+                mCtrl.$parsers.push(evenOddValid);
+            }
+        }
+    })
+</script>
+
+</html>

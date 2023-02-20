@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>WTL 13</title>
+</head>
+
+<body ng-app="" ng-init="count=0">
+    {{count}}<br>
+    <input type="button" ng-mouseup="count=count+1" value="ng-mouseup"><br>
+    <input type="button" ng-mousedown="count=count+1" value="ng-mousedown"><br>
+    <input type="button" ng-mouseover="count=count+1" value="ng-mouseover"><br>
+    <input type="button" ng-mouseenter="count=count+1" value="ng-mouseenter"><br>
+    <input type="button" ng-mouseleave="count=count+1" value="ng-mouseleave"><br>
+    <input type="button" ng-mousemove="count=count+1" value="ng-mousemove"><br>
+</body>
+
+</html>

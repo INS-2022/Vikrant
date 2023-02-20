@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>WTL 20</title>
+</head>
+
+<body ng-app="">
+    <form name="validForm">
+        Username: <input type="text" name="usr" ng-model="usr" ng-minlength="8" ng-maxlength="15" required>
+        <span style="color: red" ng-show="validForm.usr.$touched && validForm.usr.$invalid">Enter Valid
+            Username</span>
+        Password: <input type="password" name="pswd" ng-model="pswd"
+            ng-pattern="/^(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]/" ng-minlength="8" ng-required>
+        <span style="color: red" ng-show="validForm.pswd.$touched && validForm.pswd.$invalid">Enter Valid
+            Password</span>
+        <span style="color: orange" ng-show="validForm.pswd.$error.pattern">Must contain: 1 special char, Uppercase,
+            Lowercase, and number</span>
+    </form>
+</body>
+
+</html>
