@@ -1,0 +1,114 @@
+<html>
+<head>
+    <title>49</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myCtrl", function($scope) {
+            $scope.employeeList = [
+            {
+                id:1,
+                name:"John",
+                age:25,
+                doj:new Date("2010-01-01"),
+                department: {
+                    id:1,
+                    name:"IT"
+                }
+            },
+            {
+                id:2,
+                name:"Mary",
+                age:30,
+                doj:new Date("2012-01-01"),
+                department: {
+                    id:2,
+                    name:"HR"
+                }
+            },
+            {
+                id:3,
+                name:"Peter",
+                age:28,
+                doj:new Date("2011-01-01"),
+                department: {
+                    id:1,
+                    name:"IT"
+                }
+            },
+            {
+                id:4,
+                name:"Bill",
+                age:32,
+                doj:new Date("2010-01-01"),
+                department: {
+                    id:3,
+                    name:"Finance"
+                }
+            },
+            {
+                id:5,
+                name:"Ram",
+                age:35,
+                doj:new Date("2010-01-01"),
+                department: {
+                    id:3,
+                    name:"Finance"
+                }
+            },
+            {
+                id:6,
+                name:"Ron",
+                age:25,
+                doj:new Date("2014-01-01"),
+                department: {
+                    id:2,
+                    name:"HR"
+                }
+            },
+            {
+                id:7,
+                name:"Chris",
+                age:30,
+                doj:new Date("2013-01-01"),
+                department: {
+                    id:1,
+                    name:"IT"
+                }
+            },
+            {
+                id:8,
+                name:"Tom",
+                age:25,
+                doj:new Date("2014-01-01"),
+                department: {
+                    id:3,
+                    name:"Finance"
+                }
+            }
+            ];
+        });
+    </script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <table border="black">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>DOJ</th>
+                <th>Department</th>
+            </tr>
+            <tr ng-repeat="employee in employeeList | limitTo : 3">
+                <td>{{employee.id}}</td>
+                <td>{{employee.name}}</td>
+                <td>{{employee.age}}</td>
+                <td>{{employee.doj | date :"fullDate"}}</td>
+                <td>{{employee.department | json}}</td>
+            </tr>
+        </table>
+    </div>
+    
+</body>
+</html>
