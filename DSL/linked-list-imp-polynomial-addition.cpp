@@ -9,16 +9,14 @@ class Term{
     Term(int coefficient,int power, Term *term=NULL){
         this->coefficient = coefficient;
         this->power = power;
-        if (term !=NULL){
-            this->term = term;
-        }
+        this->term = term;
     }
 };
 
-class PolynomialAddition{
+class Polynomial{
     public:
     Term *head;
-    PolynomialAddition(){
+    Polynomial(){
         head = NULL;
     }
     void addTerm(int coefficient,int power){
@@ -36,7 +34,7 @@ class PolynomialAddition{
     void print(){
         Term *temp = head;
         while(temp != NULL){
-            if (temp->power == 0){
+            if (temp->term == NULL){
                 cout<<temp->coefficient<<endl;
                 return;
             }
@@ -47,8 +45,8 @@ class PolynomialAddition{
     
 
 };
-PolynomialAddition addPolynomial(PolynomialAddition p1,PolynomialAddition p2){
-        PolynomialAddition p3;
+Polynomial addPolynomial(Polynomial p1,Polynomial p2){
+        Polynomial p3;
         Term *temp1 = p1.head;
         Term *temp2 = p2.head;
         while(temp1 != NULL && temp2 != NULL){
@@ -77,13 +75,13 @@ PolynomialAddition addPolynomial(PolynomialAddition p1,PolynomialAddition p2){
         p3.print();
         return p3;
     }
-PolynomialAddition operator+(PolynomialAddition p1,PolynomialAddition p2){
-    PolynomialAddition p3 = addPolynomial(p1,p2);
+Polynomial operator+(Polynomial p1,Polynomial p2){
+    Polynomial p3 = addPolynomial(p1,p2);
     return p3;
 }
 
 int main() {
-    PolynomialAddition p1,p2;
+    Polynomial p1,p2;
     cout << "Enter the number of terms in the first polynomial" << endl;
     int n;
     cin>>n;
@@ -110,7 +108,7 @@ int main() {
     cout<<"The second polynomial is"<<endl;
     p2.print();
     cout << "The sum of the two polynomials is" << endl;
-    PolynomialAddition p3 = p1+p2;
+    Polynomial p3 = p1+p2;
     p3.print();
     return 0;
 
